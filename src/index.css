@@ -8,3 +8,42 @@
 body {
     box-sizing: border-box;
 }
+
+
+/* ================================
+   MOBILE HOVER → TAP FIX
+================================ */
+
+/* Enable hover styles on touch */
+@media (hover: none) and (pointer: coarse) {
+
+    .group:active .group-hover\:opacity-25,
+    .group:focus-visible .group-hover\:opacity-25 {
+      opacity: 0.25 !important;
+    }
+  
+    .group:active .group-hover\:scale-110,
+    .group:focus-visible .group-hover\:scale-110 {
+      transform: scale(1.1);
+    }
+  
+    .group:active .group-hover\:translate-x-0,
+    .group:focus-visible .group-hover\:translate-x-0 {
+      transform: translateX(0);
+    }
+  
+    .group:active .group-hover\:grayscale-0,
+    .group:focus-visible .group-hover\:grayscale-0 {
+      filter: grayscale(0);
+    }
+  
+    .group:active .group-hover\:border-violet-500\/50,
+    .group:focus-visible .group-hover\:border-violet-500\/50 {
+      border-color: rgba(139, 92, 246, 0.5);
+    }
+  
+    .group:active .group-hover\:shadow-\[0_0_18px_rgba\(139\,92\,246\,0\.35\)\],
+    .group:focus-visible .group-hover\:shadow-\[0_0_18px_rgba\(139\,92\,246\,0\.35\)\] {
+      box-shadow: 0 0 18px rgba(139,92,246,0.35);
+    }
+  }

@@ -17,7 +17,7 @@ export default function MatterBackground() {
       const width = rect.width;
       const height = rect.height;
 
-      if (width === 0 || height === 0) return; // 🛑 prevent white screen
+      if (width === 0 || height === 0) return;
 
       const engine = Engine.create();
       engineRef.current = engine;
@@ -38,7 +38,6 @@ export default function MatterBackground() {
         },
       });
 
-      // --- WALLS ---
       const wallOptions = { isStatic: true, restitution: 1.2, friction: 0 };
       const bounds = [
         Bodies.rectangle(width / 2, -50, width, 100, wallOptions),
@@ -82,19 +81,28 @@ export default function MatterBackground() {
 
       World.add(engine.world, [...bounds, ...shapes]);
 
-      const mouse = { x: width / 2, y: height / 2 };
+      const pointer = { x: width / 2, y: height / 2 };
 
-      const onMove = (e) => {
+      const updatePointer = (x, y) => {
         const r = sceneRef.current.getBoundingClientRect();
-        mouse.x = e.clientX - r.left;
-        mouse.y = e.clientY - r.top;
+        pointer.x = x - r.left;
+        pointer.y = y - r.top;
       };
 
-      sceneRef.current.addEventListener("mousemove", onMove);
+      const onMouseMove = (e) => updatePointer(e.clientX, e.clientY);
+      const onTouchMove = (e) => {
+        if (e.touches[0]) {
+          updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+        }
+      };
+
+      sceneRef.current.addEventListener("mousemove", onMouseMove);
+      sceneRef.current.addEventListener("touchstart", onTouchMove, { passive: true });
+      sceneRef.current.addEventListener("touchmove", onTouchMove, { passive: true });
 
       Events.on(engine, "beforeUpdate", () => {
         shapes.forEach((body) => {
-          const diff = Vector.sub(mouse, body.position);
+          const diff = Vector.sub(pointer, body.position);
           const dist = Vector.magnitude(diff);
           if (dist < 300 && dist > 0) {
             Body.applyForce(
@@ -111,14 +119,14 @@ export default function MatterBackground() {
       Runner.run(runner, engine);
 
       return () => {
-        sceneRef.current.removeEventListener("mousemove", onMove);
+        sceneRef.current.removeEventListener("mousemove", onMouseMove);
+        sceneRef.current.removeEventListener("touchstart", onTouchMove);
+        sceneRef.current.removeEventListener("touchmove", onTouchMove);
       };
     };
 
-    // ✅ delay init until layout exists
     requestAnimationFrame(init);
 
-    // ✅ cleanup
     return () => {
       if (render) {
         Render.stop(render);
@@ -126,7 +134,7 @@ export default function MatterBackground() {
       }
       if (runner) Runner.stop(runner);
       if (engineRef.current) {
-        World.clear(engineRef.current.world);
+        Matter.World.clear(engineRef.current.world);
         Matter.Engine.clear(engineRef.current);
       }
     };
@@ -136,7 +144,6 @@ export default function MatterBackground() {
     <div
       ref={sceneRef}
       className="absolute inset-0 bg-[#050505]"
-      style={{ zIndex: 0 }}
     />
   );
 }

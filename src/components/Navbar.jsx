@@ -84,24 +84,29 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#030712]/40 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
       
       {/* UPDATED CONTAINER:
-          1. max-w-[1800px]: Significantly wider container for large screens.
-          2. lg:px-16 xl:px-24: Increased padding to push content to edges on desktop.
+          1. px-4: Reduced padding on mobile (was px-6) to prevent overflow on 292px screens.
+          2. sm:px-6 md:px-12: Restores larger padding on bigger screens.
+          3. overflow-hidden: Ensures no child element inside nav triggers a scrollbar.
       */}
-      <div className="w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+      <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between overflow-hidden sm:overflow-visible">
 
         {/* Top Row: Logo & Hamburger */}
         <div className="flex items-center justify-between w-full sm:w-auto relative z-20">
           
-          {/* --- LUXURY EMBLEM LOGO --- */}
+          {/* --- LUXURY EMBLEM LOGO (CENTERED) --- */}
           <div 
             className="cursor-pointer relative group" 
             onClick={() => handleNavClick('home')}
             aria-label="Deep Mandal Logo"
           >
-            <div className="relative w-[50px] h-[50px] flex items-center justify-center">
+            {/* UPDATED LOGO SIZE: 
+               w-[40px] h-[40px] for mobile (fits narrow screens better).
+               sm:w-[50px] sm:h-[50px] for tablets/desktops.
+            */}
+            <div className="relative w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] flex items-center justify-center transition-all duration-300">
               <svg 
-                width="50" 
-                height="50" 
+                width="100%" 
+                height="100%" 
                 viewBox="0 0 60 60" 
                 fill="none" 
                 className="overflow-visible"
@@ -139,9 +144,9 @@ export default function Navbar() {
                   fill="url(#badgeGradient)"
                 />
 
-                {/* Back "D" (Shadow) */}
+                {/* Back "D" (Shadow) - Shifted +4px Right */}
                 <path 
-                  d="M 18 15 L 18 45 L 30 45 Q 44 45 44 30 Q 44 15 30 15 Z"
+                  d="M 22 15 L 22 45 L 34 45 Q 48 45 48 30 Q 48 15 34 15 Z"
                   stroke="#111827" 
                   strokeWidth="3"   
                   fill="none"
@@ -150,10 +155,11 @@ export default function Navbar() {
                   className="transition-all duration-300 group-hover:opacity-100 group-hover:stroke-[#1f2937]"
                 />
 
-                {/* Front "D" (Main Path) */}
+                {/* Front "D" (Main Path) - Shifted +4px Right to Center */}
+                {/* (13 -> 17) Centers the main shape in the 60px box */}
                 <path 
                   ref={pathRef}
-                  d="M 13 12 L 13 42 L 26 42 Q 40 42 40 27 Q 40 12 26 12 Z"
+                  d="M 17 12 L 17 42 L 30 42 Q 44 42 44 27 Q 44 12 30 12 Z"
                   stroke="url(#logoGradient)" 
                   strokeWidth="2.5"
                   strokeLinecap="square"
@@ -225,4 +231,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

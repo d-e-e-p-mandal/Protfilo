@@ -144,34 +144,52 @@ export default function Skills() {
 
         {/* LEFT SIDE (Unchanged) */}
         <div className="space-y-12">
-          <div className="space-y-4">
-            <h2 className="tech-ecosystem text-4xl md:text-5xl font-bold text-white tracking-tight">
-              Tech <span className="text-violet-500 drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">Ecosystem</span>
-            </h2>
-            <p className="text-gray-400 max-w-md">
-              Specialized in the MERN stack and high-performance algorithms.
-            </p>
+  <div className="space-y-4">
+    <h2 className="tech-ecosystem text-4xl md:text-5xl font-bold text-white tracking-tight">
+      Tech{" "}
+      <span className="text-violet-500 drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
+        Ecosystem
+      </span>
+    </h2>
+    <p className="text-gray-400 max-w-md">
+      Specialized in the MERN stack and high-performance algorithms.
+    </p>
+  </div>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    {skills.map((skill) => (
+      <div key={skill.name} className="skill-item-left group relative">
+        <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-0 group-hover:opacity-25 transition duration-500" />
+        
+        <div className="relative flex items-center gap-4 p-4 rounded-xl bg-[#0a1128]/60 border border-white/5 backdrop-blur-sm group-hover:border-violet-500/50 transition-all">
+          
+          <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-black/40 border border-white/10">
+            <img
+              src={skill.logo}
+              alt={skill.name}
+              className="
+                w-5 h-5
+                transition-all duration-500
+                group-hover:scale-110
+                group-hover:drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]
+              "
+            />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {skills.map((skill) => (
-              <div key={skill.name} className="skill-item-left group relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-0 group-hover:opacity-25 transition duration-500" />
-                <div className="relative flex items-center gap-4 p-4 rounded-xl bg-[#0a1128]/60 border border-white/5 backdrop-blur-sm group-hover:border-violet-500/50 transition-all">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-black/40 border border-white/10">
-                    <img src={skill.logo} alt={skill.name} className="w-5 h-5 grayscale group-hover:grayscale-0 transition-all" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-gray-300 font-semibold text-sm">{skill.name}</p>
-                    <div className="h-[1px] w-full bg-white/5 mt-2 overflow-hidden">
-                      <div className="h-full w-full bg-violet-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="flex-1">
+            <p className="text-gray-300 font-semibold text-sm">
+              {skill.name}
+            </p>
+
+            <div className="h-[1px] w-full bg-white/5 mt-2 overflow-hidden">
+              <div className="h-full w-full bg-violet-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700" />
+            </div>
           </div>
         </div>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* RIGHT SIDE (Visible Immediately, Continuous Orbit) */}
         <div className="relative flex justify-center items-center h-[500px]">

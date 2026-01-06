@@ -5,13 +5,20 @@ export default function Home() {
   return (
     <section
       id="home"
-      className="relative h-[70vh] overflow-hidden flex items-center justify-center"
+      className="
+        relative
+        w-full
+        min-h-[750px]
+        h-screen
+        overflow-hidden
+        flex items-center justify-center
+      "
     >
       {/* Animated Background */}
       <MatterBackground />
 
+      {/* Hero Content */}
       <Hero />
-
     </section>
   );
 }
