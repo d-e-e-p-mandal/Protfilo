@@ -96,8 +96,8 @@ function GlowOrbitButton({ label, href, download, icon }) {
       <a
         ref={btnRef}
         href={href}
-        download={download}
-        target={!download ? "_blank" : undefined}
+        // download={download}
+        target={"_blank"}
         rel="noopener noreferrer"
         className="
           flex items-center justify-center
@@ -174,13 +174,13 @@ export default function Hero() {
           stagger: 0.05,
           ease: "back.out(1.7)",
         },
-        "-=0.4"
+        "-=0.7"
       )
       .fromTo(
         ".animate-content",
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.8, stagger: 0.2 },
-        "-=0.4"
+        "-=0.7"
       );
   }, []);
 
@@ -237,29 +237,36 @@ export default function Hero() {
           <span className="ml-1 text-violet-500 animate-pulse">|</span>
         </p>
 
-        <div className="animate-content flex flex-wrap gap-6 mt-6 opacity-0">
-  <GlowOrbitButton
-    label="Download CV"
-    href={resumePdf}
-    download
-    icon={download}
-  />
-  <GlowOrbitButton
-    label="GitHub"
-    href="https://github.com/d-e-e-p-mandal"
-    icon={github}
-  />
-  <GlowOrbitButton
-    label="LinkedIn"
-    href="https://www.linkedin.com/in/d-e-e-p-mandal/"
-    icon={linkedin}
-  />
-  <GlowOrbitButton
-    label="LeetCode"
-    href="https://leetcode.com/u/d_e_e_p_mandal"
-    icon={leetcode}
-  />
-</div>
+        <div className="animate-content
+    flex flex-wrap
+    justify-center
+    items-center
+    gap-6
+    mt-6
+    opacity-0
+    w-full">
+          <GlowOrbitButton
+            label="Download CV"
+            href={resumePdf}
+            download
+            icon={download}
+          />
+          <GlowOrbitButton
+            label="GitHub"
+            href="https://github.com/d-e-e-p-mandal"
+            icon={github}
+          />
+          <GlowOrbitButton
+            label="LinkedIn"
+            href="https://www.linkedin.com/in/d-e-e-p-mandal/"
+            icon={linkedin}
+          />
+          <GlowOrbitButton
+            label="LeetCode"
+            href="https://leetcode.com/u/d_e_e_p_mandal"
+            icon={leetcode}
+          />
+        </div>
       </div>
     </section>
   );

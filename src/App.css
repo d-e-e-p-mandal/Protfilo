@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+/* =========================
+   APP CONTAINER
+========================= */
+.app {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* =========================
+     HEADINGS
+  ========================= */
+  h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* =========================
+     TEXT
+  ========================= */
+  p {
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+  
+  /* =========================
+     LINKS
+  ========================= */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--accent);
+  }
+  
+  /* =========================
+     BUTTON (GENERIC)
+  ========================= */
+  button {
+    background: transparent;
+    border: 1px solid var(--border-soft);
+    color: var(--text-main);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  
+  /* =========================
+     CARD (GENERIC)
+  ========================= */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  
+  /* =========================
+     SECTION SPACING
+  ========================= */
+  section {
+    padding: 4rem 1.5rem;
+  }
+  
+  /* =========================
+     RESPONSIVE
+  ========================= */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.6rem;
+    }
+  
+    section {
+      padding: 3rem 1rem;
+    }
+  }
