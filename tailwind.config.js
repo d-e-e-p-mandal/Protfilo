@@ -1,4 +1,5 @@
-export default {
+
+  export default {
     content: [
       "./index.html",
       "./src/**/*.{js,jsx,ts,tsx}",
@@ -7,4 +8,4 @@ export default {
       extend: {},
     },
     plugins: [],
-  }
+  };
