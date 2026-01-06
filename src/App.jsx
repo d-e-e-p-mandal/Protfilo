@@ -1,3 +1,5 @@
+import { Routes, Route, Navigate } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -6,26 +8,28 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import SmoothScroll from "./components/SmoothScroll";
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
 export default function App() {
   return (
-    <BrowserRouter>
-      <SmoothScroll>
-        <div className="bg-gradient-to-b from-[#0b0f1a] to-[#0f172a] text-gray-200">
-          <Navbar />
-          <Home />
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </div>
-      </SmoothScroll>
+    <SmoothScroll>
+      <Navbar />
 
-      {/* 🔁 Redirect ALL routes to Home */}
       <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="bg-gradient-to-b from-[#0b0f1a] to-[#0f172a] text-gray-200">
+              <Home />
+              <About />
+              <Skills />
+              <Projects />
+              <Contact />
+            </div>
+          }
+        />
+
+        {/* Redirect unknown routes to home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </BrowserRouter>
+    </SmoothScroll>
   );
 }
