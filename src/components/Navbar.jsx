@@ -81,7 +81,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#030712]/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#030712]/40 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
       
       {/* UPDATED CONTAINER:
           1. max-w-[1800px]: Significantly wider container for large screens.
@@ -207,7 +207,7 @@ export default function Navbar() {
                       transition-all duration-300 bg-transparent
                       ${
                         isHover
-                          ? "text-white border-violet-400/50 shadow-[0_0_10px_rgba(139,92,246,0.2)]"
+                          ? "text-white border-violet-400/50 shadow-[0_0_18px_rgba(139,92,246,0.35)]"
                           : isActive
                           ? "text-violet-400 border-violet-400/20 bg-white/5"
                           : "text-gray-400 border-transparent hover:text-white"
@@ -225,3 +225,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
