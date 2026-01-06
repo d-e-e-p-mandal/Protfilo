@@ -67,7 +67,6 @@ export default function Skills() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-
       /* 1. LEFT SIDE ENTRANCE (UNCHANGED) */
       gsap.from(q(".tech-ecosystem"), {
         opacity: 0,
@@ -96,7 +95,7 @@ export default function Skills() {
 
       /* 2. RIGHT SIDE CONTINUOUS ORBIT (NO ENTRANCE ANIMATION) */
       // The globe is visible immediately. We just start the spinning loop.
-      
+
       gsap.to(q(".orbit-container"), {
         rotate: 360,
         duration: 50, // Slow continuous rotation
@@ -110,7 +109,6 @@ export default function Skills() {
         repeat: -1,
         ease: "linear",
       });
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -141,55 +139,62 @@ export default function Skills() {
       <div className="absolute bottom-1/4 left-10 w-[300px] h-[300px] bg-blue-600/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
-
         {/* LEFT SIDE (Unchanged) */}
         <div className="space-y-12">
-  <div className="space-y-4">
-    <h2 className="tech-ecosystem text-4xl md:text-5xl font-bold text-white tracking-tight">
-      Tech{" "}
-      <span className="text-violet-500 drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
-        Ecosystem
-      </span>
-    </h2>
-    <p className="text-gray-400 max-w-md">
-      Specialized in the MERN stack and high-performance algorithms.
-    </p>
-  </div>
-
-  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-    {skills.map((skill) => (
-      <div key={skill.name} tabIndex={0}  className="skill-item-left group relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-0 group-hover:opacity-25 transition duration-500" />
-        
-        <div className="relative flex items-center gap-4 p-4 rounded-xl bg-[#0a1128]/60 border border-white/5 backdrop-blur-sm group-hover:border-violet-500/50 transition-all">
-          
-          <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-black/40 border border-white/10">
-            <img
-              src={skill.logo}
-              alt={skill.name}
-              className="
-                w-5 h-5
-                transition-all duration-500
-                group-hover:scale-110
-                group-hover:drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]
-              "
-            />
+          <div className="space-y-4">
+            <h2 className="tech-ecosystem text-4xl md:text-5xl font-bold text-white tracking-tight">
+              Tech{" "}
+              <span className="text-violet-500 drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]">
+                Ecosystem
+              </span>
+            </h2>
+            <p className="text-gray-400 max-w-md">
+              Specialized in the MERN stack and high-performance algorithms.
+            </p>
           </div>
 
-          <div className="flex-1">
-            <p className="text-gray-300 font-semibold text-sm">
-              {skill.name}
-            </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {skills.map((skill) => (
+              <div
+                key={skill.name}
+                tabIndex={0}
+                // Added focus:outline-none to remove browser default ring
+                // group-focus allows children to detect when this parent is clicked/focused
+                className="skill-item-left group relative focus:outline-none"
+              >
+                {/* Added group-focus:opacity-25 */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-0 group-hover:opacity-25 group-focus:opacity-25 transition duration-500" />
 
-            <div className="h-[1px] w-full bg-white/5 mt-2 overflow-hidden">
-              <div className="h-full w-full bg-violet-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700" />
-            </div>
+                {/* Added group-focus:border-violet-500/50 */}
+                <div className="relative flex items-center gap-4 p-4 rounded-xl bg-[#0a1128]/60 border border-white/5 backdrop-blur-sm group-hover:border-violet-500/50 group-focus:border-violet-500/50 transition-all">
+                  <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-black/40 border border-white/10">
+                    <img
+                      src={skill.logo}
+                      alt={skill.name}
+                      className="
+                        w-5 h-5
+                        transition-all duration-500
+                        group-hover:scale-110 group-focus:scale-110
+                        group-hover:drop-shadow-[0_0_10px_rgba(139,92,246,0.6)] group-focus:drop-shadow-[0_0_10px_rgba(139,92,246,0.6)]
+                      "
+                    />
+                  </div>
+
+                  <div className="flex-1">
+                    <p className="text-gray-300 font-semibold text-sm">
+                      {skill.name}
+                    </p>
+
+                    <div className="h-[1px] w-full bg-white/5 mt-2 overflow-hidden">
+                      {/* Added group-focus:translate-x-0 */}
+                      <div className="h-full w-full bg-violet-500 translate-x-[-100%] group-hover:translate-x-0 group-focus:translate-x-0 transition-transform duration-700" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    ))}
-  </div>
-</div>
 
         {/* RIGHT SIDE (Visible Immediately, Continuous Orbit) */}
         <div className="relative flex justify-center items-center h-[500px]">
@@ -199,8 +204,17 @@ export default function Skills() {
           {/* Center Globe */}
           <div
             ref={globeRef}
-            tabIndex={0} 
-            className="relative w-44 h-44 md:w-56 md:h-56 rounded-full border border-violet-500/20 bg-violet-950/10 backdrop-blur-xl flex items-center justify-center shadow-[0_0_50px_rgba(139,92,246,0.1)] transition-all duration-500 hover:shadow-[0_0_80px_rgba(139,92,246,0.3)] hover:scale-105"
+            tabIndex={0}
+            // Added focus:shadow..., focus:scale-105, focus:outline-none
+            className="
+              relative w-44 h-44 md:w-56 md:h-56 rounded-full 
+              border border-violet-500/20 bg-violet-950/10 backdrop-blur-xl 
+              flex items-center justify-center 
+              shadow-[0_0_50px_rgba(139,92,246,0.1)] 
+              transition-all duration-500 
+              hover:shadow-[0_0_80px_rgba(139,92,246,0.3)] hover:scale-105
+              focus:shadow-[0_0_80px_rgba(139,92,246,0.3)] focus:scale-105 focus:outline-none
+            "
           >
             <span className="animate-shimmer text-3xl md:text-4xl font-black tracking-[0.2em] pointer-events-none">
               DSA
@@ -214,30 +228,36 @@ export default function Skills() {
                 return (
                   <div
                     key={skill.name}
-                    style={{ transform: `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)` }}
+                    style={{
+                      transform: `rotate(${angle}deg) translate(${radius}px) rotate(-${angle}deg)`,
+                    }}
                     className="orbit-item-wrapper absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
                   >
-                    {/* Icon Container (Hover effects maintained) */}
-                    <div 
-                      tabIndex={0} 
+                    {/* Icon Container (Hover effects maintained + Focus effects added) */}
+                    <div
+                      tabIndex={0}
+                      // Added focus:scale-150, focus:border-violet-500, focus:bg..., focus:shadow...
                       className="
                         orbit-icon w-14 h-14 p-3 rounded-2xl bg-[#0a1128] border border-white/10 
                         flex items-center justify-center cursor-pointer 
                         transition-all duration-300 ease-out
                         hover:scale-150 hover:border-violet-500 hover:bg-violet-950/50 hover:z-50 hover:shadow-[0_0_20px_rgba(139,92,246,0.6)]
+                        focus:scale-150 focus:border-violet-500 focus:bg-violet-950/50 focus:z-50 focus:shadow-[0_0_20px_rgba(139,92,246,0.6)] focus:outline-none
                       "
                       title={skill.name}
                     >
-                      <img src={skill.logo} alt={skill.name} className="w-full h-full object-contain" />
+                      <img
+                        src={skill.logo}
+                        alt={skill.name}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                   </div>
                 );
               })}
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

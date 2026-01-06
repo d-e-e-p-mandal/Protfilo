@@ -35,7 +35,7 @@ const projects = [
 
 export default function Projects() {
   const timelinePathRef = useRef(null);
-  const headingRef = useRef(null); // Ref for the title
+  const headingRef = useRef(null); 
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -45,7 +45,7 @@ export default function Projects() {
     }
     requestAnimationFrame(raf);
 
-    // --- NEW: ANIMATE "PROJECTS" HEADING ---
+    // --- ANIMATE "PROJECTS" HEADING ---
     const headingChars = headingRef.current.querySelectorAll(".heading-char");
     gsap.fromTo(
       headingChars,
@@ -68,10 +68,8 @@ export default function Projects() {
         },
       }
     );
-    // ---------------------------------------
 
-
-    // 1. TIMELINE DRAWING ANIMATION (Unchanged)
+    // 1. TIMELINE DRAWING ANIMATION
     const path = timelinePathRef.current;
     const pathLength = path.getTotalLength();
     
@@ -88,7 +86,7 @@ export default function Projects() {
       },
     });
 
-    // 2. PROJECT CARDS ENTRANCE (Unchanged)
+    // 2. PROJECT CARDS ENTRANCE
     const rows = document.querySelectorAll(".project-row-container");
     rows.forEach((row, i) => {
       const card = row.querySelector(".macbook-card");
@@ -139,7 +137,7 @@ export default function Projects() {
 
       <div id="projects-container" className="relative max-w-7xl mx-auto pt-20">
         
-        {/* CENTER TIMELINE - Self-Drawing Path (Unchanged) */}
+        {/* CENTER TIMELINE */}
         <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 h-full z-0 pointer-events-none">
           <svg width="40" height="100%" viewBox="0 0 40 1200" preserveAspectRatio="none">
             <path 
@@ -198,7 +196,8 @@ function ProjectCard({ project, index }) {
       {/* MACBOOK CARD */}
       <div 
         tabIndex={0}
-        className="macbook-card bg-[#0f172a]/95 backdrop-blur-md rounded-xl border border-white/20 shadow-2xl overflow-hidden z-20 relative transition-all duration-500 hover:border-violet-500/40 transform-gpu">
+        /* ADDED: group, focus:outline-none, focus:border-violet... */
+        className="macbook-card group bg-[#0f172a]/95 backdrop-blur-md rounded-xl border border-white/20 shadow-2xl overflow-hidden z-20 relative transition-all duration-500 hover:border-violet-500/40 focus:outline-none focus:border-violet-500/40 transform-gpu">
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
           <div className="flex gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
@@ -212,14 +211,14 @@ function ProjectCard({ project, index }) {
         </div>
 
         <div className="relative overflow-hidden group/img">
-          {/* CHANGED: Made image lighter initially (grayscale-[0.2] instead of 0.6) */}
+          {/* ADDED: group-focus:grayscale-0 group-focus:scale-110 */}
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-48 md:h-64 object-cover grayscale-[0.2] group-hover/img:grayscale-0 transition-all duration-1000 group-hover/img:scale-110"
+            className="w-full h-48 md:h-64 object-cover grayscale-[0.2] group-hover/img:grayscale-0 group-focus:grayscale-0 transition-all duration-1000 group-hover/img:scale-110 group-focus:scale-110"
           />
-          {/* CHANGED: Made overlay lighter initially (bg-black/20 instead of 50) */}
-          <div className="absolute inset-0 bg-black/20 flex items-center justify-center p-6 transition-all duration-500 group-hover/img:bg-black/10">
+          {/* ADDED: group-focus:bg-black/10 */}
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center p-6 transition-all duration-500 group-hover/img:bg-black/10 group-focus:bg-black/10">
             <h3 className="text-xl md:text-2xl font-bold text-white text-center tracking-tight leading-tight">
               {project.title}
             </h3>
@@ -227,20 +226,23 @@ function ProjectCard({ project, index }) {
         </div>
       </div>
 
-      {/* INFO BOX (Unchanged) */}
+      {/* INFO BOX */}
       <div className="info-box mt-4 md:mt-6 bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-xl px-6 py-7 md:px-8 md:py-8 shadow-2xl relative z-10 transition-all duration-500 hover:bg-white/[0.05] hover:border-white/20">
         
-      <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6">
           {project.tech.map((item, i) => (
             <div 
               key={i} 
               tabIndex={0}
-              className="tech-badge group/skill flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 whitespace-nowrap transition-all hover:border-violet-500/50 hover:bg-violet-500/5"
+              /* ADDED: focus:outline-none focus:border... focus:bg... */
+              className="tech-badge group/skill flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 whitespace-nowrap transition-all hover:border-violet-500/50 hover:bg-violet-500/5 focus:outline-none focus:border-violet-500/50 focus:bg-violet-500/5"
             >
-              <span className="text-violet-400 text-[10px] group-hover/skill:animate-pulse">
+              {/* ADDED: group-focus/skill:animate-pulse */}
+              <span className="text-violet-400 text-[10px] group-hover/skill:animate-pulse group-focus/skill:animate-pulse">
                 {item.symbol}
               </span>
-              <span className="text-gray-400 text-[10px] md:text-[11px] font-semibold tracking-wide group-hover/skill:text-white transition-colors">
+              {/* ADDED: group-focus/skill:text-white */}
+              <span className="text-gray-400 text-[10px] md:text-[11px] font-semibold tracking-wide group-hover/skill:text-white group-focus/skill:text-white transition-colors">
                 {item.name}
               </span>
             </div>
@@ -252,16 +254,15 @@ function ProjectCard({ project, index }) {
         </p>
 
         <div className="flex items-center justify-between pt-6 border-t border-white/5">
-          <a href="#" className="group/link flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-gray-500 hover:text-violet-400 transition-all">
-            Source Code <span className="text-violet-500 transition-transform group-hover/link:translate-x-1.5">→</span>
+          {/* ADDED: focus:outline-none focus:text-violet-400 and group-focus translation */}
+          <a href="#" className="group/link flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-gray-500 hover:text-violet-400 focus:outline-none focus:text-violet-400 transition-all">
+            Source Code <span className="text-violet-500 transition-transform group-hover/link:translate-x-1.5 group-focus/link:translate-x-1.5">→</span>
           </a>
-          <a href="#" className="group/link flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-gray-500 hover:text-violet-400 transition-all">
-            View Project <span className="text-violet-500 transition-transform group-hover/link:translate-x-1.5">→</span>
+          <a href="#" className="group/link flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-gray-500 hover:text-violet-400 focus:outline-none focus:text-violet-400 transition-all">
+            View Project <span className="text-violet-500 transition-transform group-hover/link:translate-x-1.5 group-focus/link:translate-x-1.5">→</span>
           </a>
         </div>
       </div>
     </div>
   );
 }
-
-<div className="flex flex-wrap gap-2 md:gap-3 mb-6"></div>
