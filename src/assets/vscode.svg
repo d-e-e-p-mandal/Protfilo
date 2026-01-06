@@ -1,0 +1,37 @@
+<svg
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- VS Code Blue -->
+  <defs>
+    <linearGradient id="vscodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#007ACC"/>
+      <stop offset="100%" stop-color="#1F9CF0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main Shape -->
+  <path
+    d="M178 24
+       L92 92
+       L52 64
+       L24 88
+       L64 128
+       L24 168
+       L52 192
+       L92 164
+       L178 232
+       L232 208
+       L232 48 Z"
+    fill="url(#vscodeGrad)"
+  />
+
+  <!-- Inner Cut -->
+  <path
+    d="M178 64
+       L178 192
+       L116 128 Z"
+    fill="#ffffff"
+    opacity="0.15"
+  />
+</svg>

@@ -1,0 +1,31 @@
+<svg
+  width="64"
+  height="64"
+  viewBox="0 0 64 64"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Blue Hexagon -->
+  <polygon
+    points="32 4 56 18 56 46 32 60 8 46 8 18"
+    fill="#00599C"
+  />
+
+  <!-- Inner Highlight -->
+  <polygon
+    points="32 10 50 21 50 43 32 54 14 43 14 21"
+    fill="#007ACC"
+  />
+
+  <!-- C Letter -->
+  <text
+    x="32"
+    y="42"
+    text-anchor="middle"
+    font-size="28"
+    font-weight="800"
+    fill="#ffffff"
+    font-family="Arial, Helvetica, sans-serif"
+  >
+    C
+  </text>
+</svg>

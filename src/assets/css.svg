@@ -1,0 +1,22 @@
+<svg
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Shield -->
+  <path
+    d="M40 32 L216 32 L200 208 L128 232 L56 208 Z"
+    fill="#1572B6"
+  />
+
+  <!-- Inner Shield -->
+  <path
+    d="M128 48 L192 48 L178 196 L128 214 Z"
+    fill="#33A9DC"
+  />
+
+  <!-- CSS Text -->
+  <path
+    d="M96 92 L160 92 L158 116 L120 116 L122 140 L156 140 L150 176 L128 184 L106 176 L104 156 L124 156 L126 164 L128 166 L130 164 L134 152 L98 152 Z"
+    fill="#ffffff"
+  />
+</svg>

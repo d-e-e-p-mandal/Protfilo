@@ -1,0 +1,29 @@
+<svg
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Background -->
+  <circle cx="128" cy="128" r="128" fill="#FF6C37"/>
+
+  <!-- Rocket Body -->
+  <path
+    d="M164 92
+       C148 76 120 76 104 92
+       L92 104
+       C112 120 136 144 152 164
+       L164 152
+       C180 136 180 108 164 92 Z"
+    fill="#ffffff"
+  />
+
+  <!-- Rocket Window -->
+  <circle cx="128" cy="128" r="10" fill="#FF6C37"/>
+
+  <!-- Rocket Flame -->
+  <path
+    d="M88 168
+       C80 176 80 192 96 200
+       C104 184 104 176 96 160 Z"
+    fill="#ffffff"
+  />
+</svg>

@@ -1,0 +1,42 @@
+<svg
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Hexagon -->
+  <path
+    d="M128 16l96 56v112l-96 56-96-56V72l96-56z"
+    fill="#539E43"
+  />
+
+  <!-- Inner shadow -->
+  <path
+    d="M128 32l80 46v92l-80 46-80-46V78l80-46z"
+    fill="#68A063"
+  />
+
+  <!-- node text -->
+  <text
+    x="128"
+    y="150"
+    text-anchor="middle"
+    font-size="56"
+    font-weight="700"
+    fill="#ffffff"
+    font-family="Arial, Helvetica, sans-serif"
+  >
+    node
+  </text>
+
+  <!-- js text -->
+  <text
+    x="128"
+    y="185"
+    text-anchor="middle"
+    font-size="28"
+    font-weight="600"
+    fill="#ffffff"
+    font-family="Arial, Helvetica, sans-serif"
+  >
+    js
+  </text>
+</svg>

@@ -1,0 +1,41 @@
+<svg
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Shield background -->
+  <path
+    d="M38 30l18 190 72 20 72-20 18-190H38z"
+    fill="#E44D26"
+  />
+
+  <!-- Inner lighter shield -->
+  <path
+    d="M128 224l58-16 15-160H128v176z"
+    fill="#F16529"
+  />
+
+  <!-- Left 5 -->
+  <path
+    d="M128 110H82l3 30h43V110zm0-62H78l3 30h47V48z"
+    fill="#EBEBEB"
+  />
+
+  <!-- Right 5 -->
+  <path
+    d="M128 110v30h40l-4 46-36 10v31l64-18 9-99h-77zM128 48v30h74l3-30h-77z"
+    fill="#FFFFFF"
+  />
+
+  <!-- HTML text -->
+  <text
+    x="128"
+    y="250"
+    text-anchor="middle"
+    font-size="22"
+    font-weight="700"
+    fill="#E44D26"
+    font-family="Arial, Helvetica, sans-serif"
+  >
+    HTML
+  </text>
+</svg>

@@ -1,0 +1,30 @@
+<svg
+  viewBox="0 0 256 128"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Text -->
+  <text
+    x="128"
+    y="86"
+    text-anchor="middle"
+    font-size="72"
+    font-weight="700"
+    fill="#ffffff"
+    font-family="Inter, Arial, sans-serif"
+    letter-spacing="-2"
+  >
+    express
+  </text>
+
+  <!-- .js -->
+  <text
+    x="200"
+    y="86"
+    font-size="36"
+    font-weight="600"
+    fill="#a78bfa"
+    font-family="Inter, Arial, sans-serif"
+  >
+    .js
+  </text>
+</svg>

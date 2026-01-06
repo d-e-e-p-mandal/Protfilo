@@ -1,0 +1,42 @@
+<svg
+  viewBox="0 0 256 256"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Center dot -->
+  <circle cx="128" cy="128" r="18" fill="#61DAFB"/>
+
+  <!-- Orbit 1 -->
+  <ellipse
+    cx="128"
+    cy="128"
+    rx="110"
+    ry="42"
+    fill="none"
+    stroke="#61DAFB"
+    stroke-width="12"
+  />
+
+  <!-- Orbit 2 -->
+  <ellipse
+    cx="128"
+    cy="128"
+    rx="110"
+    ry="42"
+    fill="none"
+    stroke="#61DAFB"
+    stroke-width="12"
+    transform="rotate(60 128 128)"
+  />
+
+  <!-- Orbit 3 -->
+  <ellipse
+    cx="128"
+    cy="128"
+    rx="110"
+    ry="42"
+    fill="none"
+    stroke="#61DAFB"
+    stroke-width="12"
+    transform="rotate(-60 128 128)"
+  />
+</svg>

@@ -1,0 +1,33 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="#ffffff"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  style="display: block; margin: auto; background-color: #333; border-radius: 8px;"
+>
+  <style>
+    /* Define the bounce animation */
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(-3px);
+      }
+      50% {
+        transform: translateY(3px);
+      }
+    }
+
+    /* Apply animation to the arrow group */
+    .arrow {
+      /* Increased duration slightly for a smoother feel without the tray */
+      animation: bounce 1.8s ease-in-out infinite;
+    }
+  </style>
+
+  <g class="arrow">
+    <path d="M12 3v12" />
+    <path d="M7 10l5 5 5-5" />
+  </g>
+</svg>

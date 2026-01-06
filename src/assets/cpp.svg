@@ -1,0 +1,50 @@
+<svg
+  width="64"
+  height="64"
+  viewBox="0 0 64 64"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="cppGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+
+    <filter id="cppGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Hexagon -->
+  <polygon
+    points="32 4 54 16 54 48 32 60 10 48 10 16"
+    fill="url(#cppGrad)"
+    filter="url(#cppGlow)"
+  />
+
+  <!-- C -->
+  <text
+    x="23"
+    y="41"
+    text-anchor="middle"
+    font-size="28"
+    font-weight="800"
+    fill="#ffffff"
+    font-family="Inter, Arial, sans-serif"
+  >
+    C
+  </text>
+
+  <!-- ++ -->
+  <g fill="#ffffff">
+    <rect x="31" y="29" width="3" height="14"/>
+    <rect x="26" y="34" width="13" height="3"/>
+
+    <rect x="41" y="29" width="3" height="14"/>
+    <rect x="36" y="34" width="13" height="3"/>
+  </g>
+</svg>
