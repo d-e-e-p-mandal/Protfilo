@@ -158,7 +158,7 @@ export default function Skills() {
 
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
     {skills.map((skill) => (
-      <div key={skill.name} className="skill-item-left group relative">
+      <div key={skill.name} tabIndex={0}  className="skill-item-left group relative">
         <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-0 group-hover:opacity-25 transition duration-500" />
         
         <div className="relative flex items-center gap-4 p-4 rounded-xl bg-[#0a1128]/60 border border-white/5 backdrop-blur-sm group-hover:border-violet-500/50 transition-all">
@@ -199,6 +199,7 @@ export default function Skills() {
           {/* Center Globe */}
           <div
             ref={globeRef}
+            tabIndex={0} 
             className="relative w-44 h-44 md:w-56 md:h-56 rounded-full border border-violet-500/20 bg-violet-950/10 backdrop-blur-xl flex items-center justify-center shadow-[0_0_50px_rgba(139,92,246,0.1)] transition-all duration-500 hover:shadow-[0_0_80px_rgba(139,92,246,0.3)] hover:scale-105"
           >
             <span className="animate-shimmer text-3xl md:text-4xl font-black tracking-[0.2em] pointer-events-none">
@@ -218,8 +219,9 @@ export default function Skills() {
                   >
                     {/* Icon Container (Hover effects maintained) */}
                     <div 
+                      tabIndex={0} 
                       className="
-                        w-14 h-14 p-3 rounded-2xl bg-[#0a1128] border border-white/10 
+                        orbit-icon w-14 h-14 p-3 rounded-2xl bg-[#0a1128] border border-white/10 
                         flex items-center justify-center cursor-pointer 
                         transition-all duration-300 ease-out
                         hover:scale-150 hover:border-violet-500 hover:bg-violet-950/50 hover:z-50 hover:shadow-[0_0_20px_rgba(139,92,246,0.6)]

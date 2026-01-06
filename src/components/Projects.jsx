@@ -196,7 +196,9 @@ function ProjectCard({ project, index }) {
   return (
     <div className="relative w-full max-w-lg">
       {/* MACBOOK CARD */}
-      <div className="macbook-card bg-[#0f172a]/95 backdrop-blur-md rounded-xl border border-white/20 shadow-2xl overflow-hidden z-20 relative transition-all duration-500 hover:border-violet-500/40 transform-gpu">
+      <div 
+        tabIndex={0}
+        className="macbook-card bg-[#0f172a]/95 backdrop-blur-md rounded-xl border border-white/20 shadow-2xl overflow-hidden z-20 relative transition-all duration-500 hover:border-violet-500/40 transform-gpu">
         <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
           <div className="flex gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
@@ -232,6 +234,7 @@ function ProjectCard({ project, index }) {
           {project.tech.map((item, i) => (
             <div 
               key={i} 
+              tabIndex={0}
               className="tech-badge group/skill flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 whitespace-nowrap transition-all hover:border-violet-500/50 hover:bg-violet-500/5"
             >
               <span className="text-violet-400 text-[10px] group-hover/skill:animate-pulse">

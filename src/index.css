@@ -10,16 +10,53 @@ body {
 }
 
 
-/* ================================
-   MOBILE HOVER → TAP FIX
-================================ */
-
-/* Enable hover styles on touch */
+/* =====================================================
+   GLOBAL MOBILE FIX: HOVER → TAP
+   (Matches current JSX exactly)
+===================================================== */
 @media (hover: none) and (pointer: coarse) {
 
-    .group:active .group-hover\:opacity-25,
-    .group:focus-visible .group-hover\:opacity-25 {
-      opacity: 0.25 !important;
+    /* ---------- GENERIC GROUP HOVER → TAP ---------- */
+    .group:active *,
+    .group:focus-visible * {
+      pointer-events: auto;
+    }
+  
+    /* ---------- PROJECT IMAGE GROUP ---------- */
+    .group\/img:active img,
+    .group\/img:focus-visible img {
+      transform: scale(1.1);
+      filter: grayscale(0);
+    }
+  
+    /* overlay div (no class in JSX, so target direct child) */
+    .group\/img:active > div,
+    .group\/img:focus-visible > div {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  
+    /* ---------- SKILL BADGES ---------- */
+    .group\/skill:active,
+    .group\/skill:focus-visible {
+      border-color: rgba(139, 92, 246, 0.5);
+      background-color: rgba(139, 92, 246, 0.05);
+    }
+  
+    .group\/skill:active span,
+    .group\/skill:focus-visible span {
+      color: #ffffff;
+    }
+  
+    /* ---------- LINKS ARROW ---------- */
+    .group\/link:active span,
+    .group\/link:focus-visible span {
+      transform: translateX(6px);
+    }
+  
+    /* ---------- LEFT SKILLS ---------- */
+    .group:active .group-hover\:translate-x-0,
+    .group:focus-visible .group-hover\:translate-x-0 {
+      transform: translateX(0);
     }
   
     .group:active .group-hover\:scale-110,
@@ -27,23 +64,56 @@ body {
       transform: scale(1.1);
     }
   
-    .group:active .group-hover\:translate-x-0,
-    .group:focus-visible .group-hover\:translate-x-0 {
-      transform: translateX(0);
+    .group:active .group-hover\:opacity-25,
+    .group:focus-visible .group-hover\:opacity-25 {
+      opacity: 0.25 !important;
     }
   
-    .group:active .group-hover\:grayscale-0,
-    .group:focus-visible .group-hover\:grayscale-0 {
-      filter: grayscale(0);
+    /* ---------- PROJECT CARD ---------- */
+    .macbook-card:active,
+    .macbook-card:focus-visible {
+      border-color: rgba(139, 92, 246, 0.4);
+      transform: scale(1.03);
     }
   
-    .group:active .group-hover\:border-violet-500\/50,
-    .group:focus-visible .group-hover\:border-violet-500\/50 {
+    /* ---------- TECH BADGES (direct) ---------- */
+    .tech-badge:active,
+    .tech-badge:focus-visible {
       border-color: rgba(139, 92, 246, 0.5);
+      background: rgba(139, 92, 246, 0.05);
     }
   
-    .group:active .group-hover\:shadow-\[0_0_18px_rgba\(139\,92\,246\,0\.35\)\],
-    .group:focus-visible .group-hover\:shadow-\[0_0_18px_rgba\(139\,92\,246\,0\.35\)\] {
-      box-shadow: 0 0 18px rgba(139,92,246,0.35);
+    /* ---------- ORBIT ICONS (SKILLS SECTION) ---------- */
+    .orbit-icon:active,
+    .orbit-icon:focus-visible {
+      transform: scale(1.5);
+      border-color: rgba(139, 92, 246, 1);
+      background: rgba(76, 29, 149, 0.5);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+      z-index: 50;
     }
+  }
+  
+  /* =====================================================
+     SMOOTH TRANSITIONS (ALL DEVICES)
+  ===================================================== */
+  .group *,
+  .group\/img img,
+  .group\/skill,
+  .group\/link span,
+  .tech-badge,
+  .macbook-card,
+  .orbit-icon {
+    transition:
+      transform 0.35s ease,
+      opacity 0.35s ease,
+      box-shadow 0.35s ease,
+      background 0.35s ease,
+      border-color 0.35s ease,
+      filter 0.35s ease;
+  }
+  
+  /* Optional UX polish */
+  :focus-visible {
+    outline: none;
   }
