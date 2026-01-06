@@ -27,8 +27,8 @@
   <style>
     /* Arrow Bounce Animation */
     @keyframes smoothBounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(3px); }
+      0%, 100% { transform: translateY(-2px); }
+      50% { transform: translateY(4px); }
     }
 
     /* Shine Animation */
@@ -39,7 +39,7 @@
     }
 
     .arrow-group {
-      animation: smoothBounce 2s ease-in-out infinite;
+      animation: smoothBounce 1.4s ease-in-out infinite;
       filter: url(#drop-shadow);
     }
 
