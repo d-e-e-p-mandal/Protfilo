@@ -128,11 +128,13 @@ function GlowOrbitButton({ label, href, download, icon }) {
 ----------------------------------------- */
 export default function Hero() {
   const textRef = useRef(null);
-  const nameChars = "Deep Mandal".split("");
+  
+  // CHANGED: Split into separate words instead of one character array
+  const nameWords = ["Deep", "Mandal"];
 
   /* Typewriter */
   useEffect(() => {
-    const roles = ["Full-Stack MERN Developer", "MCA Student", "Problem Solver"];
+    const roles = ["Full-Stack MERN Developer", "Software Engineering Enthusiast", "Problem Solver"];
     let i = 0, j = 0, del = false;
 
     const tick = () => {
@@ -216,17 +218,26 @@ export default function Hero() {
           <span className="intro-text inline-block opacity-0 mr-4">
             Hi, I&apos;m
           </span>
+          
+          {/* UPDATED: Map over words to keep them intact */}
           <span>
-            {nameChars.map((char, i) => (
-              <span
-                key={i}
-                className="name-char text-shimmer inline-block opacity-0"
-                style={{
-                  marginRight: char === " " ? "0.3em" : "0",
-                  transformOrigin: "bottom center",
-                }}
+            {nameWords.map((word, wordIndex) => (
+              <span 
+                key={wordIndex} 
+                className="inline-block whitespace-nowrap"
+                style={{ marginRight: wordIndex === 0 ? "0.3em" : "0" }}
               >
-                {char === " " ? "\u00A0" : char}
+                {word.split("").map((char, charIndex) => (
+                  <span
+                    key={charIndex}
+                    className="name-char text-shimmer inline-block opacity-0"
+                    style={{
+                      transformOrigin: "bottom center",
+                    }}
+                  >
+                    {char}
+                  </span>
+                ))}
               </span>
             ))}
           </span>
