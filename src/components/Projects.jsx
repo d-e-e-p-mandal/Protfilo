@@ -3,6 +3,8 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
+import tourImg from "../assets/ai_tour_planner_image.png";
+import lmsImg from "../assets/lms_image.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,7 +12,9 @@ const projects = [
   {
     title: "AI-Based Tour Planner",
     description: "MERN app using Mapbox and Gemini AI for intelligent, personalized travel planning.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
+    image: tourImg,
+    liveLink: "https://ai-tour-planner.onrender.com/",
+    githubLink: "https://github.com/d-e-e-p-mandal/AI-Tour-Planner",
     tech: [
       { name: "React", symbol: "✦" },
       { name: "Gemini AI", symbol: "⬢" },
@@ -22,7 +26,9 @@ const projects = [
   {
     title: "Learning Management System",
     description: "Role-based LMS with secure authentication, course creation, payments, and enrollment.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    image: lmsImg,
+    liveLink: "https://lms-r2sm.onrender.com/",
+    githubLink: "https://github.com/d-e-e-p-mandal/LMS",
     tech: [
       { name: "React", symbol: "◈" },
       { name: "Express", symbol: "✦" },
@@ -255,12 +261,12 @@ function ProjectCard({ project, index }) {
 
         <div className="flex items-center justify-between pt-6 border-t border-white/5">
           {/* ADDED: focus:outline-none focus:text-violet-400 and group-focus translation */}
-          <a href="#" className="group/link flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-gray-500 hover:text-violet-400 focus:outline-none focus:text-violet-400 transition-all">
-            Source Code <span className="text-violet-500 transition-transform group-hover/link:translate-x-1.5 group-focus/link:translate-x-1.5">→</span>
-          </a>
-          <a href="#" className="group/link flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-gray-500 hover:text-violet-400 focus:outline-none focus:text-violet-400 transition-all">
-            View Project <span className="text-violet-500 transition-transform group-hover/link:translate-x-1.5 group-focus/link:translate-x-1.5">→</span>
-          </a>
+          {project.githubLink && <a href={project.githubLink} className="group/link flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-gray-500 hover:text-violet-400 focus:outline-none focus:text-violet-400 transition-all">
+            Source Code-GitHub <span className="text-violet-500 transition-transform group-hover/link:translate-x-1.5 group-focus/link:translate-x-1.5">→</span>
+          </a>}
+          {project.liveLink && <a href={project.liveLink} className="group/link flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-widest font-bold text-gray-500 hover:text-violet-400 focus:outline-none focus:text-violet-400 transition-all">
+            View Project-Live Link <span className="text-violet-500 transition-transform group-hover/link:translate-x-1.5 group-focus/link:translate-x-1.5">→</span>
+          </a>}
         </div>
       </div>
     </div>

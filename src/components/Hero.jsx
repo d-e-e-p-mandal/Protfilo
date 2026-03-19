@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import resumePdf from "../assets/Deep_Resume.pdf";
 
 import download from "../assets/download.svg";
 import github from "../assets/github.svg";
@@ -258,7 +257,7 @@ export default function Hero() {
     w-full">
           <GlowOrbitButton
             label="Download CV"
-            href={resumePdf}
+            href="/Deep_Resume.pdf"
             download
             icon={download}
           />
