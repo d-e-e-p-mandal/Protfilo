@@ -2,8 +2,8 @@
 A modern, interactive developer portfolio showcasing my skills, projects, and experience with smooth animations and clean UI.
 
 ## 🌐 Live Demo
-👉 https://your-site-name.netlify.app  
-👉 GitHub Repo: https://github.com/your-username/protfilo
+Portfolio: https://deep-mandal-portfolio.netlify.app/
+GitHub: https://github.com/d-e-e-p-mandal
 
 ---
 
